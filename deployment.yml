@@ -1,0 +1,16 @@
+apiVersion: apps/beta1
+kind: Deployment
+metadata:
+  name: hello-world
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: hello-world
+    spec:     # pod spec                  
+      containers: 
+      - name: hello-world
+        image: gcr.io/hacktech-t8s/hello-world: # image we pushed
+        ports:
+        - containerPort: 8080
